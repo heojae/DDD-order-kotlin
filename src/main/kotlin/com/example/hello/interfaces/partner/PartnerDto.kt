@@ -12,12 +12,12 @@ class PartnerDto {
     @Serializable
     data class RegisterRequest(
         @field:NotBlank(message = "partnerName 는 필수값입니다.")
-        private val partnerName: String,
+        val partnerName: String,
         @field:NotBlank(message = "businessNo 는 필수값입니다.")
-        private val businessNo: String,
+        val businessNo: String,
         @field:Email(message = "email 형식에 맞아야 합니다.")
         @field:NotBlank(message = "email 는 필수값입니다.")
-        private val email: String,
+        val email: String,
     ) {
         fun toCommand(): PartnerCommand {
             return PartnerCommand(

@@ -7,6 +7,7 @@ plugins {
     kotlin("plugin.spring") version "1.5.31"
     id("org.jetbrains.kotlin.plugin.jpa") version "1.3.61"
     kotlin("plugin.serialization") version "1.5.0"
+    kotlin("kapt") version "1.5.31"
 }
 
 group = "com.example"
@@ -34,11 +35,22 @@ dependencies {
     compileOnly("org.projectlombok:lombok")
 
     // MapStruct
+//    implementation("org.mapstruct:mapstruct:1.4.2.Final")
+//    annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
+//    annotationProcessor(
+//        "org.projectlombok:lombok",
+//        "org.projectlombok:lombok-mapstruct-binding:0.1.0"
+//    )
+    // MapStruct
     implementation("org.mapstruct:mapstruct:1.4.2.Final")
     annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
     annotationProcessor(
-        "org.projectlombok:lombok",
-        "org.projectlombok:lombok-mapstruct-binding:0.1.0"
+        "org.projectlombok:lombok-mapstruct-binding:0.2.0"
+    )
+    kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
+
+    annotationProcessor(
+        "org.projectlombok:lombok"
     )
 
     implementation("com.google.guava:guava:28.2-jre")

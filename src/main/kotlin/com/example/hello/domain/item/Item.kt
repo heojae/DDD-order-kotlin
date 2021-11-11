@@ -39,10 +39,22 @@ class Item(
 
     var itemToken: String = TokenGenerator.randomCharacterWithPrefix(ITEM_PREFIX)
 
-    enum class Status(private val description: String){
+    enum class Status(private val description: String) {
         PREPARE("판매준비중"),
         ON_SALE("판매중"),
         END_OF_SALE("판매종료");
+    }
+
+    fun changeOnSale() {
+        this.status = Status.ON_SALE
+    }
+
+    fun changeEndOfSale() {
+        this.status = Status.END_OF_SALE
+    }
+
+    fun availableSales(): Boolean {
+        return this.status == Status.ON_SALE
     }
 
 

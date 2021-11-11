@@ -4,10 +4,10 @@ import com.example.hello.domain.item.Item
 
 class ItemDto {
     data class RegisterItemRequest(
-        var partnerToken: String,
-        var itemName: String,
-        var itemPrice: Long,
-        var itemOptionGroupList: List<RegisterItemOptionGroupRequest>
+        val partnerToken: String,
+        val itemName: String,
+        val itemPrice: Long,
+        val itemOptionGroupList: List<RegisterItemOptionGroupRequest>
     )
 
     data class RegisterItemOptionGroupRequest(

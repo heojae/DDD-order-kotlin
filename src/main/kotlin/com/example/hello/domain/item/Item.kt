@@ -6,6 +6,7 @@ import com.example.hello.domain.item.optiongroup.ItemOptionGroup
 import com.google.common.collect.Lists
 import javax.persistence.*
 import javax.validation.constraints.NotBlank
+import javax.validation.constraints.NotNull
 
 @Entity
 @Table(name = "items")
@@ -25,13 +26,13 @@ class Item(
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "item", cascade = [CascadeType.PERSIST])
     var itemOptionGroupList: List<ItemOptionGroup> = Lists.newArrayList()
 
-    @field:NotBlank(message = "empty partnerId")
+    @field:NotNull
     var partnerId: Long = partnerId
 
     @field:NotBlank(message = "empty itemName")
     var itemName: String = itemName
 
-    @field:NotBlank(message = "empty itemPrice")
+    @field:NotNull
     val itemPrice: Long = itemPrice
 
     var status: Status = Status.PREPARE

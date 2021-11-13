@@ -4,6 +4,7 @@ import com.example.hello.domain.AbstractEntity
 import com.example.hello.domain.item.optiongroup.ItemOptionGroup
 import javax.persistence.*
 import javax.validation.constraints.NotBlank
+import javax.validation.constraints.NotNull
 
 
 @Entity
@@ -23,13 +24,13 @@ class ItemOption(
     @JoinColumn(name = "item_option_group_id")
     var itemOptionGroup: ItemOptionGroup = itemOptionGroup
 
-    @field:NotBlank(message = "empty ordering")
+    @field:NotNull
     var ordering: Int = ordering
 
     @field:NotBlank(message = "empty itemOptionName")
     var itemOptionName: String = itemOptionName
 
-    @field:NotBlank(message = "empty itemOptionPrice")
+    @field:NotNull
     var itemOptionPrice: Long = itemOptionPrice
 
 

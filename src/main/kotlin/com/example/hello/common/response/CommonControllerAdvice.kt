@@ -34,6 +34,7 @@ class CommonControllerAdvice {
     fun onException(e: Exception): CommonResponse<String> {
         val eventId = MDC.get(CommonHttpRequestInterceptor.HEADER_REQUEST_UUID_KEY)
         // log.error("eventId = {} ", eventId, e)
+        println(e)
         return CommonResponse.fail(ErrorCode.COMMON_SYSTEM_ERROR)
     }
 
@@ -64,6 +65,7 @@ class CommonControllerAdvice {
 //                NestedExceptionUtils.getMostSpecificCause(e).message
 //            )
 //        }
+        println(e)
         return CommonResponse.fail(e.message!!, e.errorCode!!.name)
     }
 
@@ -87,6 +89,7 @@ class CommonControllerAdvice {
 //            ),
 //            NestedExceptionUtils.getMostSpecificCause(e).message
 //        )
+        println(e)
         return CommonResponse.fail(ErrorCode.COMMON_SYSTEM_ERROR)
     }
 
@@ -101,6 +104,7 @@ class CommonControllerAdvice {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = [MethodArgumentNotValidException::class])
     fun methodArgumentNotValidException(e: MethodArgumentNotValidException): CommonResponse<String> {
+        println(e)
         val eventId = MDC.get(CommonHttpRequestInterceptor.HEADER_REQUEST_UUID_KEY)
 //        log.warn(
 //            "[BaseException] eventId = {}, errorMsg = {}",

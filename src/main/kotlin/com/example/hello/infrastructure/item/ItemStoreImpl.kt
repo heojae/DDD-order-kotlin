@@ -9,8 +9,6 @@ class ItemStoreImpl(
     private val itemRepository: ItemRepository
 ) : ItemStore {
     override fun store(initItem: Item): Item {
-        println("initItem : ")
-        println(initItem)
         return itemRepository.save(initItem)
     }
 }

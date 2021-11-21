@@ -12,11 +12,8 @@ class OrderFacade(
     private val notificationService: NotificationService
 ) {
     fun registerOrder(registerOrder: OrderCommand.RegisterOrder): String {
-        println("bbbb - 1")
         val orderToken = orderService.registerOrder(registerOrder)
-        println("bbbb - 2")
         notificationService.sendKakao("ORDER_COMPLETE", "content");
-        println("bbbb - 3")
         return orderToken
     }
 

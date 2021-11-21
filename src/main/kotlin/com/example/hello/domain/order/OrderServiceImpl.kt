@@ -15,12 +15,8 @@ class OrderServiceImpl(
 
     @Transactional
     override fun registerOrder(registerOrder: OrderCommand.RegisterOrder): String {
-        println("bbbb - 1 - a")
-        println(registerOrder)
         val order = orderStore.store(registerOrder.toEntity())
-        println("bbbb - 1 - b")
         orderItemSeriesFactory.store(order = order, requestOrder = registerOrder)
-        println("bbbb - 1 - c")
         return order.orderToken
     }
 

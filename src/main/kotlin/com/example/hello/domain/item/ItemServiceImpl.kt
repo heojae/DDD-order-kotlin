@@ -15,17 +15,10 @@ class ItemServiceImpl(
 
     @Transactional
     override fun registerItem(command: ItemCommand.RegisterItemRequest, partnerToken: String): String {
-        println("cc 1")
         val partner: Partner = partnerReader.getPartner(partnerToken = partnerToken)
-        println(partner)
-        println("cc 2")
         val initItem: Item = command.toEntity(partner.id!!)
-        println(initItem)
-        println("cc 3")
         val item = itemStore.store(initItem)
-        println("cc 4")
         itemOptionSeriesFactory.store(command, item)
-        println("cc 5")
         return item.itemToken
     }
 

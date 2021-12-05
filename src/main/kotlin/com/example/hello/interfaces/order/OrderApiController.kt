@@ -14,11 +14,8 @@ class OrderApiController(
 
     @PostMapping("/init")
     fun registerOrder(@RequestBody @Valid request: OrderDto.RegisterOrderRequest): CommonResponse<OrderDto.RegisterResponse> {
-        println("aaaaaaaaa")
         val orderCommand = orderDtoMapper.of(request)
-        println("bbbbbbbbb")
         val orderToken = orderFacade.registerOrder(orderCommand)
-        println("ccccccccc")
         val response = orderDtoMapper.of(orderToken)
         return CommonResponse.success(response)
     }
@@ -32,11 +29,8 @@ class OrderApiController(
 
     @PostMapping("/payment-order")
     fun paymentOrder(@RequestBody @Valid paymentRequest: OrderDto.PaymentRequest): CommonResponse<String> {
-        println("aaaaaaaaa")
         val paymentCommand = orderDtoMapper.of(paymentRequest)
-        println("bbbbbbbbb")
         orderFacade.paymentOrder(paymentCommand)
-        println("ccccccccc")
         return CommonResponse.success("OK")
     }
 

@@ -26,4 +26,8 @@ class OrderFacade(
         notificationService.sendKakao("", "")
     }
 
+    fun updateReceiverInfo(orderToken: String, orderCommand:OrderCommand.UpdateReceiverInfoRequest){
+        orderService.updateReceiverInfo(orderToken, orderCommand);
+    }
+
 }

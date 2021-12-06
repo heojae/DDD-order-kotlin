@@ -34,4 +34,19 @@ class OrderServiceImpl(
         val orderItemList = order.orderItemList;
         return orderInfoMapper.of(order, orderItemList)
     }
+
+    @Transactional
+    override fun updateReceiverInfo(orderToken: String, request: OrderCommand.UpdateReceiverInfoRequest) {
+        val order = orderReader.getOrder(orderToken);
+        order.updateDeliveryFragment(
+            receiverName = request.receiverName,
+            receiverPhone = request.receiverPhone,
+            receiverZipcode = request.receiverZipcode,
+            receiverAddress1 = request.receiverAddress1,
+            receiverAddress2 = request.receiverAddress2,
+            etcMessage = request.etcMessage
+        )
+        order.deliveryPrepare()
+        this.orderStore.store(order)
+    }
 }

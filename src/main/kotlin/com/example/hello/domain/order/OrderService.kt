@@ -4,4 +4,5 @@ interface OrderService {
     fun registerOrder(registerOrder: OrderCommand.RegisterOrder): String;
     fun paymentOrder(paymentRequest: OrderCommand.PaymentRequest);
     fun retrieveOrder(orderToken: String): OrderInfo.Main;
+    fun updateReceiverInfo(orderToken: String, request: OrderCommand.UpdateReceiverInfoRequest)
 }

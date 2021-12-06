@@ -20,3 +20,9 @@ spring:
     schemas: order
     url: jdbc:mysql://localhost:13306/order?serverTimezone=UTC&characterEncoding=UTF-8
     enabled: true
+
+# aws 의 access-key, secret-key 를 반영해야 정상 동작함
+cloud:
+  aws:
+    access-key: access-key
+    secret-key: secret-key

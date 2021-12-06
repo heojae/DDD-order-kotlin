@@ -34,13 +34,10 @@ dependencies {
     implementation("org.flywaydb:flyway-core:7.10.0")
     compileOnly("org.projectlombok:lombok")
 
-    // MapStruct
-//    implementation("org.mapstruct:mapstruct:1.4.2.Final")
-//    annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
-//    annotationProcessor(
-//        "org.projectlombok:lombok",
-//        "org.projectlombok:lombok-mapstruct-binding:0.1.0"
-//    )
+    // aws sqs
+    implementation (platform("software.amazon.awssdk:bom:2.15.0"))
+    implementation ("org.springframework.cloud:spring-cloud-aws-messaging:2.2.1.RELEASE")
+
     // MapStruct
     implementation("org.mapstruct:mapstruct:1.4.2.Final")
     annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")

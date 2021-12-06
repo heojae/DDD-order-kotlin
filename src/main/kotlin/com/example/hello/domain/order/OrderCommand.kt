@@ -94,5 +94,14 @@ class OrderCommand {
         val payMethod: PayMethod
     )
 
+    data class UpdateReceiverInfoRequest(
+        val receiverName: String,
+        val receiverPhone: String,
+        val receiverZipcode: String,
+        val receiverAddress1: String,
+        val receiverAddress2: String,
+        val etcMessage: String
+    )
+
 
 }

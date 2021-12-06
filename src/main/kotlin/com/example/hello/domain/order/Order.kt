@@ -77,6 +77,25 @@ class Order(
         status = Status.ORDER_COMPLETE
     }
 
+    fun deliveryPrepare() {
+        if (this.status != Status.ORDER_COMPLETE) throw IllegalStatusException()
+        this.status = Status.DELIVERY_PREPARE
+        this.orderItemList.forEach { orderItem -> orderItem.deliveryPrepare() }
+    }
+
+    fun inDelivery() {
+        if (this.status != Status.DELIVERY_PREPARE) throw IllegalStatusException()
+        this.status = Status.IN_DELIVERY
+        this.orderItemList.forEach { orderItem -> orderItem.inDelivery() }
+    }
+
+    fun deliveryComplete() {
+        if (this.status != Status.IN_DELIVERY) throw IllegalStatusException()
+        this.status = Status.DELIVERY_COMPLETE
+        this.orderItemList.forEach { orderItem -> orderItem.deliveryComplete() }
+    }
+
+
     fun isAlreadyPaymentComplete(): Boolean {
         return when (status) {
             Status.ORDER_COMPLETE, Status.DELIVERY_PREPARE, Status.IN_DELIVERY, Status.DELIVERY_COMPLETE -> true
@@ -84,5 +103,21 @@ class Order(
         }
     }
 
-
+    fun updateDeliveryFragment(
+        receiverName: String,
+        receiverPhone: String,
+        receiverZipcode: String,
+        receiverAddress1: String,
+        receiverAddress2: String,
+        etcMessage: String
+    ){
+        this.deliveryFragment = DeliveryFragment(
+            receiverName=receiverName,
+            receiverPhone=receiverPhone,
+            receiverZipcode=receiverZipcode,
+            receiverAddress1=receiverAddress1,
+            receiverAddress2=receiverAddress2,
+            etcMessage=etcMessage
+        )
+    }
 }

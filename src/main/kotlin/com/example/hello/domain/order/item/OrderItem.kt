@@ -1,11 +1,13 @@
 package com.example.hello.domain.order.item
 
+import com.example.hello.common.exception.IllegalStatusException
 import com.example.hello.domain.AbstractEntity
 import com.example.hello.domain.order.Order
 import com.google.common.collect.Lists
 import javax.persistence.*
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
+import kotlin.concurrent.thread
 
 
 @Entity
@@ -66,6 +68,21 @@ class OrderItem(
     fun calculateTotalAmount(): Long {
         val itemOptionTotalAmount = this.orderItemOptionGroupList.map { it.calculateTotalAmount() }.sum()
         return (this.itemPrice + itemOptionTotalAmount) * this.orderCount
+    }
+
+    fun deliveryPrepare() {
+        if (this.deliveryStatus != DeliveryStatus.BEFORE_DELIVERY) throw IllegalStatusException()
+        this.deliveryStatus = DeliveryStatus.DELIVERY_PREPARE
+    }
+
+    fun inDelivery(){
+        if (this.deliveryStatus != DeliveryStatus.DELIVERY_PREPARE) throw IllegalStatusException()
+        this.deliveryStatus = DeliveryStatus.DELIVERING
+    }
+
+    fun deliveryComplete(){
+        if (this.deliveryStatus != DeliveryStatus.DELIVERING) throw IllegalStatusException()
+        this.deliveryStatus = DeliveryStatus.COMPLETE_DELIVERY
     }
 
 }

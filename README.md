@@ -10,13 +10,14 @@
 
 #### Branch
 
-- `master` -> `Order Server` 에 대해서만 구현 되어 있음.
+- `master` -> `Order Server` 에 대해서만 구현 되어 있음. 다른 서버와 상관없이 활용가능.
 
 - `order/expand-gift-with-sqs` 
 
-  MSA 용으로 AWS SQS 와 연동이 되어있는 부분이 구현되어 있습니다. 
+  - MSA 용으로 [DDD-gift-repo](https://github.com/heojae/DDD-gift-kotlin) 와 연동 되어 있습니다. 
 
-  [DDD-gift-repo](https://github.com/heojae/DDD-gift-kotlin) 와 연동 되어 있습니다. 
+  - AWS SQS 와 연동이 되어있는 부분이 구현되어 있습니다. 
+  - aws `access-key`, `secret-key` 가 필요합니다.
 
 
 

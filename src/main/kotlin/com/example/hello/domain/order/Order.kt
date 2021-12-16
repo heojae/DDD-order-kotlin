@@ -106,7 +106,7 @@ class Order(
     fun updateDeliveryFragment(
         receiverName: String,
         receiverPhone: String,
-        receiverZipcode: String,
+        receiverZipCode: String,
         receiverAddress1: String,
         receiverAddress2: String,
         etcMessage: String
@@ -114,7 +114,7 @@ class Order(
         this.deliveryFragment = DeliveryFragment(
             receiverName=receiverName,
             receiverPhone=receiverPhone,
-            receiverZipcode=receiverZipcode,
+            receiverZipCode=receiverZipCode,
             receiverAddress1=receiverAddress1,
             receiverAddress2=receiverAddress2,
             etcMessage=etcMessage

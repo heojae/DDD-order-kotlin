@@ -18,7 +18,7 @@ class OrderDto {
         @NotNull(message = "receiverPhone 는 필수값입니다")
         val receiverPhone: String,
         @NotNull(message = "receiverZipcode 는 필수값입니다")
-        val receiverZipcode: String,
+        val receiverZipCode: String,
         @NotNull(message = "receiverAddress1 는 필수값입니다")
         val receiverAddress1: String,
         @NotNull(message = "receiverAddress2 는 필수값입니다")
@@ -91,7 +91,7 @@ class OrderDto {
     data class DeliveryInfo(
         val receiverName: String,
         val receiverPhone: String,
-        val receiverZipcode: String,
+        val receiverZipCode: String,
         val receiverAddress1: String,
         val receiverAddress2: String,
         val etcMessage: String,

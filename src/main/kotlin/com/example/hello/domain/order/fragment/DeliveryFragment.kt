@@ -9,8 +9,8 @@ class DeliveryFragment(
     var receiverName: String,
     @field:NotBlank(message = "empty receiverPhone")
     var receiverPhone: String,
-    @field:NotBlank(message = "empty receiverZipcode")
-    var receiverZipcode: String,
+    @field:NotBlank(message = "empty receiverZipCode")
+    var receiverZipCode: String,
     @field:NotBlank(message = "empty receiverAddress1")
     var receiverAddress1: String,
     @field:NotBlank(message = "empty receiverAddress2")

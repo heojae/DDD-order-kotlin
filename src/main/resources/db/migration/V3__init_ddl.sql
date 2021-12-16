@@ -8,7 +8,7 @@ create table orders
     pay_method        varchar(30)  not null comment '결제수단',
     receiver_name     varchar(30)  not null comment '수령자명',
     receiver_phone    varchar(30)  not null comment '수령자 휴대폰번호',
-    receiver_zipcode  varchar(10)  not null comment '수령자 우편번호',
+    receiver_zip_code  varchar(10)  not null comment '수령자 우편번호',
     receiver_address1 varchar(255) not null comment '수령자 주소1',
     receiver_address2 varchar(255) not null comment '수령자 주소2',
     etc_message       varchar(255) not null comment '남기는 말',

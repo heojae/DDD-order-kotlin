@@ -21,7 +21,7 @@ class OrderInfo {
     data class DeliveryInfo(
         val receiverName: String,
         val receiverPhone: String,
-        val receiverZipcode: String,
+        val receiverZipCode: String,
         val receiverAddress1: String,
         val receiverAddress2: String,
         val etcMessage: String

@@ -41,7 +41,7 @@ class OrderServiceImpl(
         order.updateDeliveryFragment(
             receiverName = request.receiverName,
             receiverPhone = request.receiverPhone,
-            receiverZipcode = request.receiverZipcode,
+            receiverZipCode = request.receiverZipCode,
             receiverAddress1 = request.receiverAddress1,
             receiverAddress2 = request.receiverAddress2,
             etcMessage = request.etcMessage

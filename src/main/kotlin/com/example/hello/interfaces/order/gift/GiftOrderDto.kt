@@ -2,10 +2,12 @@ package com.example.hello.interfaces.order.gift
 
 import com.example.hello.domain.order.OrderCommand
 import com.example.hello.domain.order.payment.PayMethod
+import kotlinx.serialization.Serializable
 import javax.validation.constraints.NotNull
 
 class GiftOrderDto {
 
+    @Serializable
     data class RegisterOrderRequest(
         @field:NotNull(message = "buyerUserId 는 필수 값입니다.")
         val buyerUserId: Long,
@@ -14,12 +16,13 @@ class GiftOrderDto {
         val orderItemList: List<RegisterOrderItem>,
         val receiverName: String = "TEMP_VALUE",
         val receiverPhone: String = "TEMP_VALUE",
-        val receiverZipcode: String = "TEMP_VALUE",
+        val receiverZipCode: String = "TEMP_VALUE",
         val receiverAddress1: String = "TEMP_VALUE",
         val receiverAddress2: String = "TEMP_VALUE",
         val etcMessage: String = "TEMP_VALUE",
     )
 
+    @Serializable
     data class RegisterOrderItem(
         @field:NotNull(message = "orderToken 는 필수 값입니다.")
         val orderCount: Int,
@@ -33,7 +36,7 @@ class GiftOrderDto {
         val orderItemOptionGroupList: List<RegisterOrderItemOptionGroupRequest>
     )
 
-
+    @Serializable
     data class RegisterOrderItemOptionGroupRequest(
         @field:NotNull(message = "orderToken 는 필수 값입니다.")
         val ordering: Int,
@@ -43,7 +46,7 @@ class GiftOrderDto {
         val orderItemOptionList: List<RegisterOrderItemOptionRequest>
     )
 
-
+    @Serializable
     data class RegisterOrderItemOptionRequest(
         @field:NotNull(message = "orderToken 는 필수 값입니다.")
         val ordering: Int,
@@ -53,12 +56,12 @@ class GiftOrderDto {
         val itemOptionPrice: Long
     )
 
-
+    @Serializable
     data class RegisterResponse(
         val orderToken: String
     )
 
-
+    @Serializable
     data class PaymentRequest(
         @field:NotNull(message = "orderToken 는 필수 값입니다.")
         val orderToken: String,
@@ -70,10 +73,12 @@ class GiftOrderDto {
         val orderDescription: String
     )
 
+    @Serializable
     data class UpdateReceiverInfoReq(
+        var giftToken: String?,
         val receiverName: String,
         val receiverPhone: String,
-        val receiverZipcode: String,
+        val receiverZipCode: String,
         val receiverAddress1: String,
         val receiverAddress2: String,
         val etcMessage: String
@@ -82,7 +87,7 @@ class GiftOrderDto {
             return OrderCommand.UpdateReceiverInfoRequest(
                 receiverName = receiverName,
                 receiverPhone = receiverPhone,
-                receiverZipcode = receiverZipcode,
+                receiverZipCode = receiverZipCode,
                 receiverAddress1 = receiverAddress1,
                 receiverAddress2 = receiverAddress2,
                 etcMessage = etcMessage

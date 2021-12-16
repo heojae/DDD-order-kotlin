@@ -17,11 +17,8 @@ class GiftOrderServiceImpl(
 
     @Transactional
     override fun paymentOrder(paymentRequest: OrderCommand.PaymentRequest) {
-        println("GiftOrderService.paymentOrder request = $paymentRequest")
-
         val order = orderReader.getOrder(paymentRequest.orderToken)
         val temp_value: Long = order.calculateTotalAmount()
-        println("order.calculateTotalAmount() : $temp_value")
 
         // 아래 로직을 추가하면, paymentProcessor.pay 실행 이후의 보상 트랜잭션 발생을 막을 수 있다.
         if (order.status != Order.Status.INIT) throw IllegalStateException()

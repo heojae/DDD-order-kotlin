@@ -1,5 +1,8 @@
 package com.example.hello.domain.order.gift
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class GiftPaymentCompleteMessage(
-    private val orderToken: String
+    val orderToken: String
 )

@@ -14,7 +14,7 @@ class OrderCommand {
         val payMethod: String,
         val receiverName: String,
         val receiverPhone: String,
-        val receiverZipcode: String,
+        val receiverZipCode: String,
         val receiverAddress1: String,
         val receiverAddress2: String,
         val etcMessage: String,
@@ -24,7 +24,7 @@ class OrderCommand {
             val deliveryFragment = DeliveryFragment(
                 receiverName = receiverName,
                 receiverPhone = receiverPhone,
-                receiverZipcode = receiverZipcode,
+                receiverZipCode = receiverZipCode,
                 receiverAddress1 = receiverAddress1,
                 receiverAddress2 = receiverAddress2,
                 etcMessage = etcMessage,
@@ -97,7 +97,7 @@ class OrderCommand {
     data class UpdateReceiverInfoRequest(
         val receiverName: String,
         val receiverPhone: String,
-        val receiverZipcode: String,
+        val receiverZipCode: String,
         val receiverAddress1: String,
         val receiverAddress2: String,
         val etcMessage: String
